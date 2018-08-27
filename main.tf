@@ -1,5 +1,9 @@
+provider "aws" {
+  region     = "us-east-1"
+}
+
 resource "aws_s3_bucket" "b" {
-  bucket = "tn-tf-jenk-test-bucket"
+  bucket = "a-tn-tfstate-test"
   acl    = "private"
 
   tags {
@@ -10,7 +14,7 @@ resource "aws_s3_bucket" "b" {
 
 terraform {
   backend "s3" {
-    bucket = "tn-testing-tf-state"
+    bucket = "tn-tfstate"
     key    = "jen-test.tfstate"
     region = "us-east-1"
     encrypt = true
